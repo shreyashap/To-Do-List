@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todoist</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <h1>To-Do List <img src="assets/icon.png" alt=""></h1>
+            <form action="/submit" method="post">
+                <input type="text" name="taskText" placeholder="Add your tasks" required>
+                <button type="submit">Add</button>
+            </form>
+
+          
+            <div id="task-container">
+              <% if(locals.data){%>
+                <% for(let i=0; i<data.length; i++){%>
+                  <div>
+                    <input type="checkbox">
+                    <p><%= data[i]%></p>
+                  </div>
+                <%}%>
+              <%}else{%>
+                <div>
+                  <p>No tasks </p>
+                </div>
+              <%}%>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
