@@ -11,19 +11,15 @@ app.set("view engine" ,"ejs")
 let taskItems = [];
 
 app.get("/",(req,res)=>{
-   /* res.render("index.ejs",{
+  res.render("index.ejs",{
       data : taskItems
-    });*/
-  res.render("index.ejs")
+    });
 })
 
 app.post("/submit",(req,res)=>{
       const userInput = req.body["taskText"];
         taskItems.push(userInput)
- res.render("index.ejs",{
-     data : taskItems
-  });
-  //res.redirect("/")
+  res.redirect("/")
   
 })
 app.listen(port,()=>{
